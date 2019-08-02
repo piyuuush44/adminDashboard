@@ -1,0 +1,58 @@
+<div id="wrapper">
+    <div class="vertical-align-wrap">
+        <div class="vertical-align-middle auth-main">
+            <div class="auth-box">
+                <div class="top">
+                    <img src="assets/images/logo-white.svg" alt="Lucid">
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <p class="lead">Login to your account</p>
+                    </div>
+                    <div class="body">
+                        <form class="form-auth-small" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                            <div class="form-group">
+                                <label for="signin-email" class="control-label sr-only">Email</label>
+                                <input type="number"
+                                       class="form-control"
+                                       id="signin-email"
+                                       value="user@domain.com"
+                                       placeholder="Mobile"
+                                       name="mobile"
+                                       ngModel
+                                       required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-password" class="control-label sr-only">Password</label>
+                                <input type="password" class="form-control" id="signin-password"
+                                       value="thisisthepassword" placeholder="Password"
+                                       name="password"
+                                       ngModel
+                                       required>
+                            </div>
+                            <!--                            <div class="form-group clearfix">-->
+                            <!--                                <label class="fancy-checkbox element-left">-->
+                            <!--                                    <input type="checkbox">-->
+                            <!--                                    <span>Remember me</span>-->
+                            <!--                                </label>-->
+                            <!--                            </div>-->
+                            <small style="color: red" *ngIf="!loginType">
+                                Wrong credentials!
+                            </small>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                    [disabled]="!loginForm.valid">LOGIN
+                            </button>
+                            <div class="bottom">
+								<span class="helper-text m-b-10"><i class="fa fa-lock"></i>&nbsp;<a
+                                        [routerLink]="['/authentication/page-forgot-password']">Forgot
+										password?</a></span>
+                                <span>Don't have an account? <a [routerLink]="['/authentication/page-register']">Register</a></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
